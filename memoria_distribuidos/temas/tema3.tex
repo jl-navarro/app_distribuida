@@ -1,0 +1,27 @@
+\chapter{Proxy}
+\section{Introducción}
+El proxy es una interfaz en la cual tiene definidas las cabeceras de las funciones del servidor. El proxy es el encargado de hacer posible la comunicación entre el cliente y el servidor dando transparencia al cliente.
+
+\section{Funcionalidad}
+El proxy contiene las siguientes funciones (métodos):
+\begin{table}[h!]
+	\centering
+	\rowcolors{1}{white}{claro}
+	\setlength\arrayrulewidth{1.2pt}
+	\begin{tabular}{p{7cm} @{\hspace{3mm}}p{8cm}}
+		\hline Función & Descripción\\
+		\hline descargarFichero(java.lang.String name, int index) & Sube un fichero a la carpeta remota.\\
+		getHoraServidor() & El servidor calcula la hora que tiene y la devuelve en milisegundos\\
+		listaFicherosCarpetaRemota() & Crea una lista con el nombre de todos los ficheros que existen el la carpeta remota
+		del servidor\\
+		modificaCarpetaServidor() & Modifica la carpeta remota del servidor\\
+		modificaCarpetaServidor(java.lang.String carpetaServidor) & Modifica la carpeta remota del servidor\\
+		subirFichero(java.lang.String name, byte[] contenido,boolean actualizar) & Sube un fichero a la carpeta remota\\
+		ultimaModificacion(java.lang.String nombre) & Averigua la ultima modificacion de un fichero\\
+		\hline
+	\end{tabular}
+	\caption{Funcionalidad del proxy}
+	\label{tabla:funcionalidad_proxy}
+\end{table}
+\\
+Para ver la documentación con más detalle, ver la sección \ref{javadoc}.

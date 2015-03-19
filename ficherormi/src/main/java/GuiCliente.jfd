@@ -1,0 +1,93 @@
+JFDML JFormDesigner: "5.2.0.0.109" Java: "1.7.0_72" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"visible": true
+			"defaultCloseOperation": 3
+			"title": "Aplicación SSD"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+				"rows": 4
+			} ) {
+				name: "panel1"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+					"text": "Subir fichero"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "subirFicheroActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button2"
+					"text": "Descargar fichero"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "descargarFicheroActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button4"
+					"text": "Sincronizar reloj"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "sincronizaRelojActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button3"
+					"text": "Actualizar directorios"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "actualizarDirectoriosActionPerformed", true ) )
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu1"
+					"text": "Archivo"
+					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+						name: "menu2"
+						"text": "Ajustes"
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "menuItem4"
+							"text": "Cambiar carpeta local"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "eligeCarpetaLocalActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "menuItem3"
+							"text": "Cambiar carpeta remota"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cambiarCarpetaServidorActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "menuItem7"
+							"text": "Cambiar Tmin"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cambiarTminActionPerformed", true ) )
+						} )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem2"
+						"text": "Salir"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "SalirActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu3"
+					"text": "About"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem5"
+						"text": "Carpeta local"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "verRutaLocalActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem6"
+						"text": "Tmin"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "tminActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem1"
+						"text": "Información"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "infoActionPerformed", true ) )
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

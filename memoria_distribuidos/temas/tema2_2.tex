@@ -1,0 +1,10 @@
+\chapter{Servidor}
+\section{Introducción}
+Se ha diseñado el servidor como una aplicación de consola ya que no tiene sentido crear una interfaz gráfica ya que el cliente hará una petición al servidor mediante el proxy al servidor. El servidor ejecutará la petición y devolverá al cliente el resultado mediante el proxy.
+
+\section{Funcionalidad del servidor}
+El servidor tiene las siguientes funcionalidades: descargar fichero, dar la hora que tiene, lista los ficheros de la carpeta remota, modifica la carpeta remota, subir un fichero y por último devolver la última modificación de un fichero.
+
+\subsection{Descargar fichero}
+Descarga un fichero sin tener en cuenta la fecha de la última modificación. Si se quiere tener en cuenta la fecha de la última modificación, previamente hay que comprobar previamente que el fichero del cliente es más viejo que el del servidor.\\
+\inputminted[bgcolor=claro,firstline=113,lastline=140]{java}{/home/juan/IdeaProjects/ficherormi/src/main/java/Servidor.java}

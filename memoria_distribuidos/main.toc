@@ -1,0 +1,29 @@
+\contentsline {chapter}{Contenidos}{2}{section*.1}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Java RMI}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Servidor}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Proxy}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Cliente}{3}{section.1.4}
+\contentsline {section}{\numberline {1.5}Configuraci\IeC {\'o}n}{4}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Configuraci\IeC {\'o}n del fichero server.policy}{4}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Configuraci\IeC {\'o}n de la m\IeC {\'a}quina virtual}{4}{subsection.1.5.2}
+\contentsline {chapter}{\numberline {2}Servidor}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introducci\IeC {\'o}n}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Funcionalidad del servidor}{5}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Descargar fichero}{5}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Devolver la hora}{5}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Listar ficheros}{6}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Modificar la carpeta remota del servidor}{6}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Subir fichero}{6}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}\IeC {\'U}ltima modificaci\IeC {\'o}n}{6}{subsection.2.2.6}
+\contentsline {chapter}{\numberline {3}Proxy}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introducci\IeC {\'o}n}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}Funcionalidad}{7}{section.3.2}
+\contentsline {chapter}{\numberline {4}Cliente}{8}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introducci\IeC {\'o}n}{8}{section.4.1}
+\contentsline {section}{\numberline {4.2}Ejecuci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{8}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Ventana principal}{8}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Elegir directorio remoto}{10}{subsection.4.2.2}
+\contentsline {chapter}{\numberline {A}Documentaci\IeC {\'o}n de la aplicaci\IeC {\'o}n distribuida}{11}{appendix.A}
+\contentsline {section}{\numberline {A.1}Javadoc}{11}{section.A.1}
+\contentsline {section}{\numberline {A.2}Documentaci\IeC {\'o}n}{11}{section.A.2}

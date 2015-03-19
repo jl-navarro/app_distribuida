@@ -1,0 +1,37 @@
+\chapter{Introducción}
+Esta aplicación consiste en sincronizar dos directorios. Un directorio en un cliente y otro en un servidor. Si el fichero que se encuentra en el cliente no existe en el directorio del servidor, entonces el cliente subirá el fichero al servidor. Si el fichero que se encuentra en el servidor no existe en el cliente, entonces el cliente se descargará del servidor dicho fichero. \\ \\ Para implementar la aplicación se va a usar java rmi. La aplicación constará de tres partes:
+\begin{itemize}
+	\item Servidor
+	\item Proxy
+	\item Cliente
+\end{itemize}
+
+\section{Java RMI}
+RMI (Java Remote Method Invocation) es un mecanismo ofrecido por Java para invocar un método de manera remota. Forma parte del entorno estándar de ejecución de Java y proporciona un mecanismo simple para la comunicación de servidores en aplicaciones distribuidas basadas exclusivamente en Java. Si se requiere comunicación entre otras tecnologías debe utilizarse CORBA o SOAP en lugar de RMI.\\
+RMI se caracteriza por la facilidad de su uso en la programación por estar específicamente diseñado para Java; proporciona paso de objetos por referencia (no permitido por SOAP), recolección de basura distribuida (Garbage Collector distribuido) y paso de tipos arbitrarios (funcionalidad no provista por CORBA).
+
+\section{Servidor}
+Se ha diseñado el servidor como una aplicación de consola ya que no tiene sentido crear una interfaz gráfica ya que el cliente hará una petición al servidor mediante el proxy al servidor. El servidor ejecutará la petición y devolverá al cliente el resultado mediante el proxy.
+
+\section{Proxy}
+El proxy es una interfaz en la cual tiene definidas las cabeceras de las funciones del servidor. El proxy es el encargado de hacer posible la comunicación entre el cliente y el servidor dando transparencia al cliente.
+
+\section{Cliente}
+Se ha diseñado el cliente con una interfaz gráfica para simplificar el manejo de la aplicación distribuida al cliente. Cuando el cliente desea realizar una petición al servidor, éste invoca al proxy y el proxy realiza la petición al servidor. Cuando el servidor acaba, el resultado le llega al cliente mediante el proxy.
+
+\section{Configuración}
+Para configurar correctamente RMI es necesario cumplir los siguientes pasos:
+\begin{enumerate}
+	\item Crear el fichero server.policy
+	\item Es necesario pasar parámetros a la máquina virtual java.
+\end{enumerate}
+\subsection{Configuración del fichero server.policy}
+Este fichero contiene la configuración de permisos de acceso. Para dar correctamente hay que crear el fichero server.policy con el siguiente código.\\
+\inputminted[bgcolor=claro]{RobotFramework}{/home/juan/IdeaProjects/ficherormi/target/classes/server.policy}
+\subsection{Configuración de la máquina virtual}
+Una vez creado el fichero server.policy hay que pasar los siguientes parámetros a la máquina virtual.
+\begin{enumerate}
+	\item -Djava.rmi.server.codebase=file://$<$ruta$>$ 
+	\item -Djava.security.policy=file://$<$ruta$>$server.policy
+\end{enumerate}
+En el primer parámetro se indica la ruta de los ficheros binarios de la aplicación. En el segundo parámetro se indica la ruta del fichero server.policy

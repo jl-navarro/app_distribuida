@@ -1,0 +1,44 @@
+\chapter{Servidor}
+\section{Introducción}
+Se ha diseñado el servidor como una aplicación de consola ya que no tiene sentido crear una interfaz gráfica ya que el cliente hará una petición al servidor mediante el proxy al servidor. El servidor ejecutará la petición y devolverá al cliente el resultado mediante el proxy.
+
+\section{Funcionalidad del servidor}
+El servidor tiene las siguientes funcionalidades: descargar fichero, dar la hora que tiene, lista los ficheros de la carpeta remota, cambiar el directorio remoto, subir un fichero y por último devolver la última modificación de un fichero.
+
+\subsection{Descargar fichero}
+Descarga un fichero sin tener en cuenta la fecha de la última modificación. Si se quiere tener en cuenta la fecha de la última modificación, hay que comprobar previamente que el fichero del cliente es más viejo que el del servidor.
+\\
+Este método descarga un fichero mediante un buffer de bytes el cual se envía al cliente. Se realiza de esta manera para optimizar el uso de la aplicación. Los parámetros que acepta el método son los siguientes:
+\begin{itemize}
+	\item name: Nombre del fichero que se quiere descargar.
+	\item index: Se empieza a llenar el buffer, el cual se va a enviar al cliente, en el byte número index del texto que contiene el fichero que se quiere descargar.
+\end{itemize}
+Lo primero que hace el método es comprobar que el fichero que se quiere descargar existe en la carpeta del servidor. Si no existe se manda un mensaje de error al cliente.\\ A continuación se calcula el número de la iteración, es decir, cuantos buffers (partes) se le han mandado ya al cliente. Se utiliza el número de iteración para saber si en la iteración actual se va a rellenar el buffer. Si es así crea el buffer con la longitud habitual. De no rellenarse el buffer, se calcula el número de bytes que se van a mandar al cliente y se crea el buffer con dicha longitud.\\ Una vez rellenado el buffer se calcula si en la iteracción actual se completa el fichero. Si es así, al final del buffer se manda un carácter de escape seguido de la cadena `FIN'. De no completarse el fichero en la iteración actual, al final del buffer se manda un carácter de escape seguido de la cadena `continue' para que el cliente sepa que tiene que mandar una nueva petición al servidor.
+
+\subsection{Devolver la hora}
+El servidor accede al reloj del sistema operativo, captura la hora y la traduce en milisegundos. A continuación, se la envía al cliente si no se produce ningún error. En el caso de que se produzca un error en alguna operación le envía el servidor al cliente un mensaje de error.
+
+\subsection{Listar ficheros}
+Este método se encarga de averiguar el nombre de todos los ficheros que se encuentran en la carpeta remota.
+
+\subsection{Modificar la carpeta remota del servidor}
+Para implementar esta función se han generado dos métodos en el servidor. El primero, no tiene parámetros y lista los posibles directorios remotos del servidor y se los envía al cliente. El cliente elige el directorio remoto del servidor y llama al segundo método que coge como parámetro la ruta del directorio. Este segundo método, coge la ruta pasada como parámetro y le asocia la carpeta remota.
+
+\subsection{Subir fichero}
+Sube un fichero sin tener en cuenta la fecha de la última modificación. Si se quiere tener en cuenta la fecha de la última modificación, hay que comprobar previamente que el fichero del cliente es más nuevo que el del servidor.
+\\
+Este método sube un fichero mediante un buffer de bytes el cual se envía al servidor. Se realiza de esta manera para optimizar el uso de la aplicación. Los parámetros que acepta el método son los siguientes:
+\begin{itemize}
+	\item name: Nombre del fichero que se quiere subir.
+	\item buffer: Parte del fichero que se va a subir al servidor.
+	\item actualizar: Vale true si se va a actualizar el fichero y por tanto hay que borrar el fichero existente.
+\end{itemize}
+Lo primero que hace el método es comprobar que el fichero que se quiere subir existe.  Si no existiese, el servidor lo crea.\\ Lo siguiente es comprobar si la parte enviada es la primera parte o no. Si es la primera parte, entonces el parámetro actualizar vale true. Si no es la primera parte, entonces se lee el contenido del fichero y se guarda en una variable.\\ Después, se añade a la variable auxiliar el buffer de contenido enviado por el cliente.\\ A continuación, se comprueba que el fichero que se quiere escribir tiene permisos de escritura. Si no los tiene, se manda un mensaje de error al cliente. Si se puede escribir, entonces se escribe en el fichero.
+
+\subsection{Última modificación}
+Averigua la última modificación de un fichero.
+Este método acepta el siguiente parámetro:
+\begin{itemize}
+	\item nombre: Nombre del fichero que se quiere saber la última modificación.
+\end{itemize}
+Lo primero que hace es comprobar si el fichero existe. Si el fichero no existe, se manda un mensaje de error al cliente. Si existe el fichero, se calculará la última modificación y se enviará al cliente.
