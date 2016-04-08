@@ -3,6 +3,8 @@ import java.io.Serializable;
 /**
  * Clase generica que contendra el valor de la respuesta del servidor y se le asocia un mensaje de error en caso de haberse
  * producido un error.
+ * @author Juan Luis Navarro Rey.
+ * @version 1,0
  */
 public class RespuestaServidor<T> implements Serializable {
 
